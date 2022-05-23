@@ -6,7 +6,21 @@ class Pesanan {
 
     protected $table = 'pesanan';
 
-    public function createPesanan() {
+    public function createPesanan($nama, $nik, $nohp, $wisata_id, $tanggal, $dewasa, $anak, $total) {
         global $conn;
+
+        $query = "INSERT INTO $this->table VALUES (
+            '',
+            '$nama',
+            '$nik',
+            '$nohp',
+            '$wisata_id',
+            '$tanggal',
+            '$dewasa',
+            '$anak',
+            $total
+        )";
+
+        $conn->query($query);
     }
 }
