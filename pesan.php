@@ -22,7 +22,7 @@
         <input type="number" name="nohp" placeholder="No HP"><br>
         <select name="wisata" id="wisata">
             <?php foreach($wisata->showAll() as $item): ?>
-            <option value="<?= $item['harga'] ?>"><?= $item['nama_wisata'] ?></option>
+            <option value="<?= $item['harga'] ?>|<?= $item['id'] ?>"><?= $item['nama_wisata'] ?></option>
             <?php endforeach ?>
         </select><br>
         <input type="date" name="tanggal"><br>
@@ -38,7 +38,10 @@
     <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function hitungTotal() {
-            var harga = document.getElementById('wisata').value;
+            var value = document.getElementById('wisata').value;
+            const split = value.split("|");
+            let harga = parseInt(split[0]);
+
             var dewasa = document.getElementById('dewasa').value;
             var anak = document.getElementById('anak').value;
 
