@@ -24,16 +24,15 @@
         <div class="row py-5 header">
             <div class="col-6 mx-auto">
                 <h2>WISATA</h2>
-                <div class="d-flex justify-content-center mt-4">
-                    <a href="" class="btn btn-primary mx-1">Mulai Pesan TIket</a>
-                    <a href="" class="btn btn-primary mx-1">Statistik Pengunjung</a>
-                </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row mb-3">
-            <h3>Temukan Destinasi Wisata di Banyumas</h3>
+            <div class="d-flex justify-content-between">
+                <h3>Temukan Destinasi Wisata di Banyumas</h3>
+                <a href="" class="btn btn-primary">Pesan Tiket Sekarang</a>
+            </div>
         </div>
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <?php 
