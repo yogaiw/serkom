@@ -1,6 +1,7 @@
 <?php 
     require __DIR__.'/connection.php';
     require __DIR__.'/config.php';
+
     include_once __DIR__.'/models/Wisata.php';
 
     $wisata = new Wisata;
@@ -23,31 +24,31 @@
         <div class="row py-5 header">
             <div class="col-6 mx-auto">
                 <h2>WISATA</h2>
+                <div class="d-flex justify-content-center mt-4">
+                    <a href="" class="btn btn-primary mx-1">Mulai Pesan TIket</a>
+                    <a href="" class="btn btn-primary mx-1">Statistik Pengunjung</a>
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <?php 
-                $i = 1;
-                foreach($wisata->showAll() as $value) {
-                ?>
-                <div class="card mb-3 mx-auto" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $value['nama_wisata'] ?></h5>
-                                <p class="card-text"><?= rupiah($value['harga']) ?></p>
-                            </div>
-                        </div>
+        <div class="row mb-3">
+            <h3>Temukan Destinasi Wisata di Banyumas</h3>
+        </div>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <?php 
+            foreach($wisata->showAll() as $value) {
+            ?>
+            <div class="col">
+                <div class="card shadow">
+                    <img src="assets/img/noimage.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $value['nama_wisata'] ?></h5>
+                        <p class="card-text"><?= rupiah($value['harga']) ?></p>
                     </div>
                 </div>
-                <?php } ?>
             </div>
+            <?php } ?>
         </div>
     </div>
 </body>
