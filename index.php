@@ -34,7 +34,7 @@
                 <a href="" class="btn btn-primary">Pesan Tiket Sekarang</a>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="row row-cols-2 row-cols-md-4 g-4">
             <?php 
             foreach($wisata->showAll() as $value) {
             ?>

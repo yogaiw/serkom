@@ -3,14 +3,13 @@ require_once __DIR__.'/../connection.php';
 
 // Class untuk mengelola data wisata
 class Wisata {
-    /*
-        showAll -> untuk menampilkan semua data dalam tabel wisata
-        @return array|object
-    */
+    
+    protected $table = 'wisata';
+
     public function showAll() {
         global $conn;
 
-        $query = "SELECT * FROM wisata";
+        $query = "SELECT * FROM $this->table";
         return $conn->query($query);
     }
 }
