@@ -17,26 +17,35 @@
 </head>
 <body>
     <form action="" method="POST">
-        <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required><br>
-        <input type="number" name="nik" placeholder="NIK" required><br>
-        <input type="number" name="nohp" placeholder="No HP" required><br>
-        <select name="wisata">
+        <input type="text" name="nama_lengkap" placeholder="Nama Lengkap"><br>
+        <input type="number" name="nik" placeholder="NIK"><br>
+        <input type="number" name="nohp" placeholder="No HP"><br>
+        <select name="wisata" id="wisata">
             <?php foreach($wisata->showAll() as $item): ?>
-            <option value="<?= $item['id'] ?>"><?= $item['nama_wisata'] ?></option>
+            <option value="<?= $item['harga'] ?>"><?= $item['nama_wisata'] ?></option>
             <?php endforeach ?>
         </select><br>
         <input type="date" name="tanggal"><br>
-        <input type="number" name="dewasa" id="dewasa" placeholder="Pengunjung Dewasa" required><br>
-        <input type="number" name="anak" id="anak" placeholder="Pengunjung Anak Anak" required><br>
-        <input type="number" name="total" id="total" placeholder="Total" required><br>
+        <input type="number" name="dewasa" id="dewasa" placeholder="Pengunjung Dewasa"><br>
+        <input type="number" name="anak" id="anak" placeholder="Pengunjung Anak Anak"><br>
+        <input type="number" name="total" id="total" placeholder="Total"><br>
 
-        <button>Hitung Total</button>
         <button type="submit" name="simpan">Pesan Tiket</button>
         <a href="/">Cancel</a>
     </form>
+    <button onclick="hitungTotal()">Hitung Total</button>
 
-    <script>
+    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function hitungTotal() {
+            var harga = document.getElementById('wisata').value;
+            var dewasa = document.getElementById('dewasa').value;
+            var anak = document.getElementById('anak').value;
 
+            var total = (harga*dewasa)+((harga/2)*anak);
+            
+            document.getElementById('total').value = total
+        }
     </script>
 </body>
 </html>
