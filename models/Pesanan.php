@@ -35,4 +35,14 @@ class Pesanan {
 
         return $conn->query($query)->fetch_assoc();
     }
+
+    public function showAll() {
+        global $conn;
+
+        $query = "SELECT * FROM $this->table
+        LEFT JOIN wisata ON pesanan.wisata_id = wisata.wisata_id
+        ";
+
+        return $conn->query($query);
+    }
 }
