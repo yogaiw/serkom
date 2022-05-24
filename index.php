@@ -45,7 +45,7 @@
                 <div class="card shadow h-100">
                     <img src="assets/img/<?= $value['gambar'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><?= $value['nama_wisata'] ?></h5>
+                        <h5 class="card-title"><a class="link" href="detail.php?id=<?= $value['wisata_id'] ?>"><?= $value['nama_wisata'] ?></a></h5>
                         <hr>
                         <small>Harga Tiket Masuk</small>
                         <p class="card-text"><?= rupiah($value['harga']) ?></p>

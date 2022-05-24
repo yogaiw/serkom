@@ -12,4 +12,12 @@ class Wisata {
         $query = "SELECT * FROM $this->table";
         return $conn->query($query);
     }
+
+    public function detail($id) {
+        global $conn;
+
+        $query = "SELECT * FROM $this->table WHERE wisata_id = ".$id;
+
+        return $conn->query($query)->fetch_assoc();
+    }
 }
