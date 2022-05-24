@@ -64,7 +64,7 @@
             data: {
                 labels: [<?php foreach($wisata->showAll() as $item) { echo '"'. $item['nama_wisata'].'"'.','; } ?>],
                 datasets: [{
-                    label: 'Jumlah Reservasi',
+                    label: 'Jumlah Pengunjung',
                     data: [<?php foreach($wisata->showAll() as $item) { echo $item['visitors'].','; } ?>],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
