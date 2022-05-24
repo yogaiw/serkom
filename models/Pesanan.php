@@ -21,7 +21,9 @@ class Pesanan {
             $total
         )";
 
+        $updateVisitors = "UPDATE wisata SET visitors = visitors"."+".($dewasa+$anak)." WHERE wisata_id = ".$wisata_id;
         $conn->query($query);
+        $conn->query($updateVisitors);
     }
 
     public function showResult() {

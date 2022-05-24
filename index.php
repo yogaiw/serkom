@@ -62,10 +62,10 @@
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: [<?php foreach($pesanan->showAll() as $item) { echo '"'. $item['nama_wisata'].'"'.','; } ?>],
+                labels: [<?php foreach($wisata->showAll() as $item) { echo '"'. $item['nama_wisata'].'"'.','; } ?>],
                 datasets: [{
-                    label: 'Jumlah Pengunjung',
-                    data: [<?php foreach($pesanan->showAll() as $item) { echo $item['dewasa']+$item['anak'].','; } ?>],
+                    label: 'Jumlah Reservasi',
+                    data: [<?php foreach($wisata->showAll() as $item) { echo $item['visitors'].','; } ?>],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
