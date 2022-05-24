@@ -34,24 +34,36 @@
     <script src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form action="" method="POST">
-        <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required><br>
-        <input type="number" name="nik" placeholder="NIK" required><br>
-        <input type="number" name="nohp" placeholder="No HP" required><br>
-        <select name="wisata" id="wisata" required>
-            <?php foreach($wisata->showAll() as $item): ?>
-            <option value="<?= $item['harga'] ?>|<?= $item['id'] ?>"><?= $item['nama_wisata'] ?></option>
-            <?php endforeach ?>
-        </select><br>
-        <input type="date" name="tanggal" required><br>
-        <input type="number" name="dewasa" id="dewasa" placeholder="Pengunjung Dewasa" required><br>
-        <input type="number" name="anak" id="anak" placeholder="Pengunjung Anak Anak" required><br>
-        <input type="number" name="total" id="total" placeholder="Total" required><br>
+    <div class="container py-4">
+        <div class="row">
+            <div class="card mx-auto py-4 shadow">
+                <h4 class="mb-4"><b>Form Pemesanan Tiket</b></h4>
+                <form action="" method="POST">
+                    <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required><br>
+                    <input type="number" name="nik" class="form-control" placeholder="NIK" required><br>
+                    <input type="number" name="nohp" class="form-control" placeholder="No HP" required><br>
+                    <div class="form-floating">
+                        <select name="wisata" id="wisata" class="form-control" required>
+                            <?php foreach($wisata->showAll() as $item): ?>
+                            <option value="<?= $item['harga'] ?>|<?= $item['id'] ?>"><?= $item['nama_wisata'] ?> -- <?= rupiah($item['harga']) ?></option>
+                            <?php endforeach ?>
+                        </select><br>
+                        <label for="wisata">Wisata</label>
+                    </div>
+                    <input type="date" name="tanggal" class="form-control" required><br>
+                    <input type="number" name="dewasa" id="dewasa" class="form-control" placeholder="Pengunjung Dewasa" required><br>
+                    <input type="number" name="anak" id="anak" class="form-control" placeholder="Pengunjung Anak Anak" required><br>
+                    <input type="number" name="total" id="total" class="form-control" placeholder="Total" required><br>
 
-        <button type="submit" name="simpan">Pesan Tiket</button>
-        <a href="/">Cancel</a>
-    </form>
-    <button onclick="hitungTotal()">Hitung Total</button>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-secondary mx-2" type="button" onclick="hitungTotal()">Hitung Total Bayar</button>
+                        <button class="btn btn-success mx-2" type="submit" name="simpan">Pesan Tiket</button>
+                        <a class="btn btn-danger mx-2" href="index.php">Cancel</a>
+                    </div>
+                </form>  
+            </div>
+        </div>
+    </div>
 
     <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">

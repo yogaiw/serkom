@@ -31,7 +31,7 @@
         <div class="row mb-3">
             <div class="d-flex justify-content-between">
                 <h3>Temukan Destinasi Wisata di Banyumas</h3>
-                <a href="" class="btn btn-primary">Pesan Tiket Sekarang</a>
+                <a href="pesan.php" class="btn btn-primary">Pesan Tiket Sekarang</a>
             </div>
         </div>
         <div class="row row-cols-2 row-cols-md-4 g-4">
