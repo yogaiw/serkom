@@ -3,10 +3,8 @@
     require __DIR__.'/config.php';
 
     include_once __DIR__.'/models/Wisata.php';
-    include_once __DIR__.'/models/Pesanan.php';
 
     $wisata = new Wisata;
-    $pesanan = new Pesanan;
 ?>
 
 <!DOCTYPE html>

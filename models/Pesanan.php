@@ -1,7 +1,9 @@
 <?php 
 require_once __DIR__.'/../connection.php';
 
-// Class untuk mengelola data pesanan
+/**
+ * class untuk mengelola data pesanan
+*/
 class Pesanan {
 
     protected $table = 'pesanan';
@@ -36,15 +38,5 @@ class Pesanan {
         ";
 
         return $conn->query($query)->fetch_assoc();
-    }
-
-    public function showAll() {
-        global $conn;
-
-        $query = "SELECT * FROM $this->table
-        LEFT JOIN wisata ON pesanan.wisata_id = wisata.wisata_id
-        ";
-
-        return $conn->query($query);
     }
 }
