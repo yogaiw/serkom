@@ -23,4 +23,16 @@ class Pesanan {
 
         $conn->query($query);
     }
+
+    public function showResult() {
+        global $conn;
+
+        $query = "SELECT * FROM pesanan
+        LEFT JOIN wisata ON pesanan.wisata_id = wisata.wisata_id
+        ORDER BY pesanan_id DESC
+        LIMIT 1
+        ";
+
+        return $conn->query($query)->fetch_assoc();
+    }
 }

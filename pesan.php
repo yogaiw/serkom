@@ -22,6 +22,8 @@
             $_POST['anak'],
             $_POST['total']
         );
+
+        header('Location:result.php');
     }
 ?>
 <!DOCTYPE html>
@@ -40,12 +42,12 @@
                 <h4 class="mb-4"><b>Form Pemesanan Tiket</b></h4>
                 <form action="" method="POST">
                     <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required><br>
-                    <input type="number" name="nik" class="form-control" placeholder="NIK" required><br>
+                    <input type="number" name="nik" class="form-control" placeholder="No. Identitas" required><br>
                     <input type="number" name="nohp" class="form-control" placeholder="No HP" required><br>
                     <div class="form-floating">
                         <select name="wisata" id="wisata" class="form-control" required>
                             <?php foreach($wisata->showAll() as $item): ?>
-                            <option value="<?= $item['harga'] ?>|<?= $item['id'] ?>"><?= $item['nama_wisata'] ?> -- <?= rupiah($item['harga']) ?></option>
+                            <option value="<?= $item['harga'] ?>|<?= $item['wisata_id'] ?>"><?= $item['nama_wisata'] ?> -- <?= rupiah($item['harga']) ?></option>
                             <?php endforeach ?>
                         </select><br>
                         <label for="wisata">Wisata</label>
