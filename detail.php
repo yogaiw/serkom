@@ -3,7 +3,6 @@
     require __DIR__.'/config.php';
 
     include_once __DIR__.'/models/Wisata.php';
-    include_once __DIR__.'/models/Pesanan.php';
 
     $wisata = new Wisata;
     $detail = $wisata->detail($_GET['id']);
@@ -22,9 +21,24 @@
     <script src="assets/js/Chart.js"></script>
 </head>
 <body>
-    <div class="container py-4">
+    <div class="container-fluid mb-5">
         <div class="row">
-            <img src="assets/img/<?= $detail['gambar'] ?>" alt="" style="object-fit: cover; width:100%; height: 200px">
+            <img src="assets/img/<?= $detail['gambar'] ?>" alt="" style="object-fit: cover; height: 300px">
+        </div>
+    </div>
+    <div class="container">
+    <div class="d-flex justify-content-between">
+        <a href="index.php" class="btn btn-secondary">Kembali</a>
+        <a href="pesan.php" class="btn btn-secondary">Pesan Tiket</a>
+    </div>
+        <div class="row mb-4">
+            <div class="d-flex justify-content-between">
+                <h2><b><?= $detail['nama_wisata'] ?></b></h2>
+                <h4>Harga Tiket Masuk <b><?= rupiah($detail['harga']) ?></b></h4>
+            </div>
+        </div>
+        <div class="row">
+            <iframe width="1280" height="720" src="<?= $detail['youtube'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 </body>
