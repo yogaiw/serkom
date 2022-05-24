@@ -46,6 +46,8 @@
                     <img src="assets/img/<?= $value['gambar'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?= $value['nama_wisata'] ?></h5>
+                        <hr>
+                        <small>Harga Tiket Masuk</small>
                         <p class="card-text"><?= rupiah($value['harga']) ?></p>
                     </div>
                 </div>
