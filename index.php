@@ -43,7 +43,7 @@
             ?>
             <div class="col">
                 <div class="card shadow h-100">
-                    <img src="assets/img/noimage.jpg" class="card-img-top" alt="...">
+                    <img src="assets/img/<?= $value['gambar'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?= $value['nama_wisata'] ?></h5>
                         <p class="card-text"><?= rupiah($value['harga']) ?></p>
