@@ -27,7 +27,7 @@ class Pesanan {
     public function showResult() {
         global $conn;
 
-        $query = "SELECT * FROM pesanan
+        $query = "SELECT * FROM $this->table
         LEFT JOIN wisata ON pesanan.wisata_id = wisata.wisata_id
         ORDER BY pesanan_id DESC
         LIMIT 1
