@@ -36,7 +36,10 @@
                         <input type="number" class="form-control mb-3" name="harga" value="<?= $value['harga'] ?>">
                         <label class="mb-1">Video Youtube</label>
                         <input type="text" class="form-control mb-3" name="youtube" value="<?= $value['youtube'] ?>">
-                        <button type="submit" class="btn btn-primary" name="update" style="float: right;">Update</button>
+                        <div class="d-flex flex-row-reverse">
+                            <a href="admin.php" class="btn btn-danger mx-2">Kembali</a>
+                            <button type="submit" class="btn btn-success" name="update">Update</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -65,10 +65,10 @@
                             <td><?= rupiah($item['harga']) ?></td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="editwisata.php?id=<?= $item['wisata_id'] ?>" class="btn btn-warning">Edit</a>
+                                    <a href="editwisata.php?id=<?= $item['wisata_id'] ?>" class="btn btn-warning mx-2">Edit</a>
                                     <form action="" method="POST">
                                         <input type="hidden" value="<?= $item['wisata_id'] ?>" name="id">
-                                        <button class="btn btn-danger" type="submit" name="delete">Hapus</button>
+                                        <button class="btn btn-danger" onClick="javascript: return confirm('Please confirm deletion');" type="submit" name="delete">Hapus</button>
                                     </form>
                                 </div>
                             </td>
