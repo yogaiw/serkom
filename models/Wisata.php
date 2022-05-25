@@ -11,7 +11,7 @@ class Wisata {
     /**
      * Menampilkan semua data dalam tabel database
      * 
-     * @return iterable void
+     * @return iterable
      */
     public function showAll() {
         global $conn;
@@ -29,8 +29,16 @@ class Wisata {
     public function detail($id) {
         global $conn;
 
-        $query = "SELECT * FROM $this->table WHERE wisata_id = ".$id;
+        $query = "SELECT * FROM $this->table WHERE wisata_id = $id";
 
         return $conn->query($query)->fetch_assoc();
+    }
+
+    public function update($id, $nama, $harga) {
+        global $conn;
+
+        $query = "UPDATE $this->table SET nama_wisata = '$nama' , harga = $harga WHERE wisata_id = $id";
+
+        $conn->query($query);
     }
 }

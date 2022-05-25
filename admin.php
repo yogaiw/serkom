@@ -45,7 +45,7 @@
                             <td><?= rupiah($item['harga']) ?></td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="" class="btn btn-warning">Edit</a>
+                                    <a href="editwisata.php?id=<?= $item['wisata_id'] ?>" class="btn btn-warning">Edit</a>
                                     <form action="" method="POST">
                                         <button class="btn btn-danger" type="submit" name="delete">Hapus</button>
                                     </form>
