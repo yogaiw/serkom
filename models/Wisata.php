@@ -3,11 +3,17 @@ require_once __DIR__.'/../connection.php';
 
 /**
  * class untuk mengelola data Wisata
+ * 
+ * Nama Tabel : wisata
+ * Column : wisata_id, nama_wisata, harga, visitors, gambar, youtube
  */
 class Wisata {
     
     protected $table = 'wisata';
 
+    /**
+     * Memasukkan data ke database
+     */
     public function createWisata($nama, $harga, $gambar, $youtube) {
         global $conn;
 
@@ -37,10 +43,9 @@ class Wisata {
     }
 
     /**
-     * Menampilkan detail dari wisata berdasarkan id
+     * Mengambil satu baris data pada wisata berdasarkan id
      * 
-     * @param integer $id nomor identitas dari tabel wisata
-     * @return array|object
+     * @return array|null
      */
     public function detail($id) {
         global $conn;
@@ -50,6 +55,9 @@ class Wisata {
         return $conn->query($query)->fetch_assoc();
     }
 
+    /**
+     * Memperbarui data yang ketika melakukan pengeditan
+     */
     public function update($id, $nama, $harga, $gambar, $youtube) {
         global $conn;
 
@@ -60,6 +68,15 @@ class Wisata {
         $conn->query($query);
     }
 
+    /**
+     * Menghapus data wisata
+     * 
+     * Menghapus data dan gambar yang berkaitan dengan fungsi unlick(), jika isi field merupakan gambar default 'noimage.jpg'
+     * maka unlink() tidak dijalankan
+     * 
+     * @param integer $id
+     * @return void
+     */
     public function delete($id) {
         global $conn;
 

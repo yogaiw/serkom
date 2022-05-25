@@ -3,11 +3,17 @@ require_once __DIR__.'/../connection.php';
 
 /**
  * class untuk mengelola data pesanan
+ * 
+ * Nama Tabel : pesanan
+ * Column : pesanan_id, nama_lengkap, nik, nohp, wisata_id, tanggal, dewasa, anak, total
 */
 class Pesanan {
 
     protected $table = 'pesanan';
 
+    /**
+     * Memasukkan data pesanan ke tabel
+     */
     public function createPesanan($nama, $nik, $nohp, $wisata_id, $tanggal, $dewasa, $anak, $total) {
         global $conn;
 
@@ -28,6 +34,11 @@ class Pesanan {
         $conn->query($updateVisitors);
     }
 
+    /**
+     * Menampilkan data terakhir dari tabel pesanan, digunakan untuk tampilan setelah melakukan pemesanan
+     * 
+     * @return iterable
+     */
     public function showResult() {
         global $conn;
 
@@ -40,6 +51,12 @@ class Pesanan {
         return $conn->query($query)->fetch_assoc();
     }
 
+    /**
+     * Menampilkan semua data dari pesanan dan nama dari wisata,
+     * nama wisata dari pesanan diambil dengan cara JOIN dua tabel
+     * 
+     * @return iterable
+     */
     public function showAll() {
         global $conn;
 
