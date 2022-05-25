@@ -8,6 +8,22 @@ class Wisata {
     
     protected $table = 'wisata';
 
+    public function createWisata($nama, $harga, $gambar, $youtube) {
+        global $conn;
+
+        $initVisitor = 0;
+        $query = "INSERT INTO $this->table VALUES (
+            '',
+            '$nama',
+            '$harga',
+            $initVisitor,
+            '$gambar',
+            '$youtube'
+        )";
+
+        $conn->query($query);
+    } 
+
     /**
      * Menampilkan semua data dalam tabel database
      * 
@@ -40,6 +56,14 @@ class Wisata {
         $query = "UPDATE $this->table 
         SET nama_wisata = '$nama' , harga = $harga, youtube = '$youtube' 
         WHERE wisata_id = $id";
+
+        $conn->query($query);
+    }
+
+    public function delete($id) {
+        global $conn;
+
+        $query = "DELETE FROM $this->table WHERE wisata_id = $id";
 
         $conn->query($query);
     }
