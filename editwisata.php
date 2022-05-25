@@ -7,7 +7,18 @@
     $value = $wisata->detail($_GET['id']);
 
     if(isset($_POST['update'])) {
-        $wisata->update($value['wisata_id'], $_POST['nama'], $_POST['harga'], $_POST['youtube']);
+        if($_FILES['gambar']['size'] != 0) {
+            if($value['gambar'] != 'noimage.jpg') {
+                unlink("assets/img/".$value['gambar']);
+            }
+            $gambar = $_FILES['gambar']['name'];
+            $img_path = 'assets/img/'.basename($gambar);
+            move_uploaded_file($_FILES['gambar']['tmp_name'],$img_path);
+        } else {
+            $gambar = $value['gambar'];
+        }
+
+        $wisata->update($value['wisata_id'], $_POST['nama'], $_POST['harga'], $gambar, $_POST['youtube']);
         header('Location:admin.php');
     }
 ?>
@@ -29,13 +40,16 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <img src="assets/img/<?= $value['gambar'] ?>" class="mb-4" width="500px"><br>
                         <label class="mb-1">Nama Wisata</label>
                         <input type="text" class="form-control mb-3" name="nama" value="<?= $value['nama_wisata'] ?>">
                         <label class="mb-1">Harga Tiket</label>
                         <input type="number" class="form-control mb-3" name="harga" value="<?= $value['harga'] ?>">
                         <label class="mb-1">Video Youtube</label>
                         <input type="text" class="form-control mb-3" name="youtube" value="<?= $value['youtube'] ?>">
+                        <label class="mb-1">Gambar Baru</label>
+                        <input type="file" class="form-control mb-3" name="gambar">
                         <div class="d-flex flex-row-reverse">
                             <a href="admin.php" class="btn btn-danger mx-2">Kembali</a>
                             <button type="submit" class="btn btn-success" name="update">Update</button>
