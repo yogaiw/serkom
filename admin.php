@@ -46,7 +46,7 @@
                         Tambah Wisata
                     </button>
                 </div>
-                <a href="" class="btn btn-danger mb-3">Logout</a>
+                <a href="index.php" class="btn btn-danger mb-3">Kembali</a>
             </div>
             <div class="card">
                 <div class="card-header">List Wisata</div>
@@ -80,7 +80,7 @@
         </div>
         <div class="row mt-4">
             <div class="d-flex justify-content-between mb-3">
-                <h3>List Pemesan</h3>
+                <h3>List Pemesanan</h3>
             </div>
             <div class="card">
                 <div class="card-header">List Pemesan</div>
@@ -137,10 +137,6 @@
                         <input class="form-control mb-4" type="text" name="youtube">
                         <button type="submit" class="btn btn-primary" name="tambah">Simpan</button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
