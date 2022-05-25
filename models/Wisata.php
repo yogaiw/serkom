@@ -63,6 +63,11 @@ class Wisata {
     public function delete($id) {
         global $conn;
 
+        $wisata = $this->detail($id);
+        if($wisata['gambar'] != 'noimage.jpg') {
+            unlink("assets/img/".$wisata['gambar']);
+        }
+
         $query = "DELETE FROM $this->table WHERE wisata_id = $id";
 
         $conn->query($query);
