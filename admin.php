@@ -9,7 +9,11 @@
     $pesanan = new Pesanan;
 
     if(isset($_POST['tambah'])) {
-        $wisata->createWisata($_POST['nama'], $_POST['harga'],'noimage.jpg',$_POST['youtube']);
+        $gambar = $_FILES['gambar']['name'];
+        $img_path = 'assets/img/'.basename($gambar);
+        move_uploaded_file($_FILES['gambar']['tmp_name'],$img_path);
+
+        $wisata->createWisata($_POST['nama'], $_POST['harga'], $gambar, $_POST['youtube']);
     }
     if(isset($_POST['delete'])) {
         $wisata->delete($_POST['id']);
