@@ -9,9 +9,13 @@
     $pesanan = new Pesanan;
 
     if(isset($_POST['tambah'])) {
-        $gambar = $_FILES['gambar']['name'];
-        $img_path = 'assets/img/'.basename($gambar);
-        move_uploaded_file($_FILES['gambar']['tmp_name'],$img_path);
+        if($_FILES['gambar']['size'] == 0) {
+            $gambar = 'noimage.jpg';
+        } else {
+            $gambar = $_FILES['gambar']['name'];
+            $img_path = 'assets/img/'.basename($gambar);
+            move_uploaded_file($_FILES['gambar']['tmp_name'],$img_path);
+        }
 
         $wisata->createWisata($_POST['nama'], $_POST['harga'], $gambar, $_POST['youtube']);
     }
