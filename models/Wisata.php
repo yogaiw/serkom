@@ -34,10 +34,12 @@ class Wisata {
         return $conn->query($query)->fetch_assoc();
     }
 
-    public function update($id, $nama, $harga) {
+    public function update($id, $nama, $harga, $youtube) {
         global $conn;
 
-        $query = "UPDATE $this->table SET nama_wisata = '$nama' , harga = $harga WHERE wisata_id = $id";
+        $query = "UPDATE $this->table 
+        SET nama_wisata = '$nama' , harga = $harga, youtube = '$youtube' 
+        WHERE wisata_id = $id";
 
         $conn->query($query);
     }

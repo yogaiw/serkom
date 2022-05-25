@@ -7,7 +7,7 @@
     $value = $wisata->detail($_GET['id']);
 
     if(isset($_POST['update'])) {
-        $wisata->update($value['wisata_id'], $_POST['nama'], $_POST['harga']);
+        $wisata->update($value['wisata_id'], $_POST['nama'], $_POST['harga'], $_POST['youtube']);
         header('Location:admin.php');
     }
 ?>
@@ -34,6 +34,8 @@
                         <input type="text" class="form-control mb-3" name="nama" value="<?= $value['nama_wisata'] ?>">
                         <label class="mb-1">Harga Tiket</label>
                         <input type="text" class="form-control mb-3" name="harga" value="<?= $value['harga'] ?>">
+                        <label class="mb-1">Video Youtube</label>
+                        <input type="text" class="form-control mb-3" name="youtube" value="<?= $value['youtube'] ?>">
                         <button type="submit" class="btn btn-primary" name="update" style="float: right;">Update</button>
                     </form>
                 </div>
