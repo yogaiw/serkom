@@ -6,6 +6,8 @@ require_once __DIR__.'/../connection.php';
  * 
  * Nama Tabel : pesanan
  * Column : pesanan_id, nama_lengkap, nik, nohp, wisata_id, tanggal, dewasa, anak, total
+ * 
+ * @author Yoga Indra Wijaya
 */
 class Pesanan {
 
@@ -13,6 +15,11 @@ class Pesanan {
 
     /**
      * Memasukkan data pesanan ke tabel
+     * 
+     * @param string $nama,$nik,$nohp,$tanggal
+     * @param integer $wisata_id,$dewasa,$anak,$total
+     * 
+     * @return void
      */
     public function createPesanan($nama, $nik, $nohp, $wisata_id, $tanggal, $dewasa, $anak, $total) {
         global $conn;

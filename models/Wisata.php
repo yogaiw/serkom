@@ -6,6 +6,8 @@ require_once __DIR__.'/../connection.php';
  * 
  * Nama Tabel : wisata
  * Column : wisata_id, nama_wisata, harga, visitors, gambar, youtube
+ * 
+ * @author Yoga Indra Wijaya
  */
 class Wisata {
     
@@ -13,6 +15,11 @@ class Wisata {
 
     /**
      * Memasukkan data ke database
+     * 
+     * @param string $nama,$gambar,$youtube
+     * @param integer $harga
+     * 
+     * @return void
      */
     public function createWisata($nama, $harga, $gambar, $youtube) {
         global $conn;
@@ -45,6 +52,8 @@ class Wisata {
     /**
      * Mengambil satu baris data pada wisata berdasarkan id
      * 
+     * @param integer $id
+     * 
      * @return array|null
      */
     public function detail($id) {
@@ -57,6 +66,11 @@ class Wisata {
 
     /**
      * Memperbarui data yang ketika melakukan pengeditan
+     * 
+     * @param integer $id,$harga
+     * @param string $nama,$gambar,$youtube
+     * 
+     * @return void
      */
     public function update($id, $nama, $harga, $gambar, $youtube) {
         global $conn;
