@@ -44,7 +44,7 @@ class Pesanan {
     /**
      * Menampilkan data terakhir dari tabel pesanan, digunakan untuk tampilan setelah melakukan pemesanan
      * 
-     * @return iterable
+     * @return array|null
      */
     public function showResult() {
         global $conn;
