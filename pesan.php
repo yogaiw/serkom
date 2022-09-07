@@ -42,9 +42,9 @@
         <div class="row">
             <div class="card mx-auto py-4 shadow">
                 <h4 class="mb-4"><b>Form Pemesanan Tiket</b></h4>
-                <form action="" method="POST">
+                <form action="" method="POST" onsubmit="return validate();">
                     <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required><br>
-                    <input type="number" name="nik" class="form-control" placeholder="No. Identitas" required><br>
+                    <input type="number" id="nik" name="nik" class="form-control" placeholder="No. Identitas" required><br>
                     <input type="number" name="nohp" class="form-control" placeholder="No HP" required><br>
                     <div class="form-floating">
                         <select name="wisata" id="wisata" class="form-control" required>
@@ -68,8 +68,7 @@
             </div>
         </div>
     </div>
-
-    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+    
     <script type="text/javascript">
         function hitungTotal() {
             var value = document.getElementById('wisata').value;
@@ -82,6 +81,15 @@
             var total = (harga*dewasa)+((harga/2)*anak);
             
             document.getElementById('total').value = total
+        }
+
+        function validate() {
+            var nik = document.getElementById('nik').value;
+            if(nik.length != 16) {
+                alert('NIK harus berjumlah 16 digit');
+                return false;
+            }
+            return true;
         }
     </script>
 </body>
